@@ -26,7 +26,7 @@ router.get('/api/providers/:id/products/', (req, res) => {
 })
 
 router.post('/api/providers/', (req, res) => {
-    const id = parseInt(req.params.id, 10);
+    const { CompanyName, ContactName, ContactTitle, Address, City, Region,PostalCode, Country, Phone, Fax, Homepage} = req.body;
     const query = "INSERT INTO suppliers (`CompanyName`,`ContactName`,`ContactTitle`,`Address`,`City`,`Region`,`PostalCode`,`Country`,`Phone`,`Fax`,`Homepage`) VALUES (?,?,?,?,?,?,?,?,?)"; 
     mysqlConnection.query(query,[ CompanyName, ContactName, ContactTitle, Address, City, Region,PostalCode, Country, Phone, Fax, Homepage], (err,rows,fields) => {
         if (!err) {
